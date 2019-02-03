@@ -7,12 +7,12 @@
 
      :component-did-mount
      (fn [this]
-       (let [element (.getElementById js/document "log")
-             last-p (.-lastChild element)
+       (let [parent (.getElementById js/document "log")
+             last-p (.-lastChild parent)
              p-top (.-offsetTop last-p)
              rem 16
              scroll-to (- p-top (* rem 3))]
-         (set! (.-scrollTop element) scroll-to)))
+         (set! (.-scrollTop parent) scroll-to)))
 
      :reagent-render
      (fn [line]

@@ -1,13 +1,13 @@
 (ns pgif.core
     (:require [reagent.core :as reagent]
-              [pgif.app :as app :refer [app]]))
+              [pgif.components.app :as app]))
 
 (enable-console-print!)
 
 ;; define your app data so that it doesn't get over-written on reload
 
 (reagent/render-component
-  [app]
+  [app/component]
   (.getElementById js/document "app"))
 
 (defn on-js-reload []
