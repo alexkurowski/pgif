@@ -4,7 +4,8 @@
 
 (enable-console-print!)
 
-;; define your app data so that it doesn't get over-written on reload
+;; (println {:msg "message"})
+;; (js* "debugger;")
 
 (reagent/render-component
   [app/component]

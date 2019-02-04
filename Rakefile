@@ -15,3 +15,7 @@ end
 task 'sass:once' do
   run 'sass --update src/sass:resources/public/css'
 end
+
+task :clean do
+  system 'lein do clean'
+end

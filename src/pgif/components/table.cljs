@@ -1,15 +1,22 @@
 (ns pgif.components.table
-  (:require [pgif.abstraction :as abstraction]))
+  (:require [pgif.components.table-thing :as table-thing]
+            [pgif.components.table-action :as table-action]
+            [pgif.abstraction :as abstraction]))
 
-(defn button [label]
-  [:a
-   {:class "btn"
-    :on-click #(abstraction/invoke label)}
-   label])
+(defn display-things []
+  (map-indexed
+    (fn [index thing]
+      ^{:key index} [table-thing/component thing])
+    @abstraction/things))
+
+(defn display-actions []
+  (map-indexed
+    (fn [index action]
+      ^{:key index} [table-action/component action])
+    (@abstraction/current-thing :actions)))
 
 (defn component []
   [:div {:id "table"}
-   (button "Suhar")
-   (button "Revolver")
-   (button "Flashlight")
-   (button "Thingy thing with 10 legs")])
+   (if (= @abstraction/current-thing nil)
+     (display-things)
+     (display-actions))])
