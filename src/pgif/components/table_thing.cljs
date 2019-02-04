@@ -1,10 +1,10 @@
 (ns pgif.components.table-thing
-  (:require [pgif.abstraction :as abstraction]))
+  (:require [pgif.abstraction.things :as abstraction-things]))
 
 (defn component [thing]
   (let [name (thing :name)]
     [:a
      {:class-name "btn"
-      :on-click #(abstraction/set-current-thing thing)}
+      :on-click #(abstraction-things/set-current-thing thing)}
      name]))
 

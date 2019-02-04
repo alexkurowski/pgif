@@ -1,8 +1,8 @@
 (ns pgif.components.log-line
-  (:require [reagent.core :as reagent]))
+  (:require [reagent.core :as r]))
 
 (defn component [line]
-  (reagent/create-class
+  (r/create-class
     {:display-name "log-line"
 
      :component-did-mount
